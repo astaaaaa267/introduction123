@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Introduction1</title>
+
+<style>
+body {
+  margin:0;
+  overflow:hidden;
+  font-family: Arial;
+  text-align:center;
+  color:white;
+}
+
+.page {
+  position:absolute;
+  width:100%;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+
+.hidden { display:none; }
+
+/* BACKGROUNDS */
+#p1 { background: linear-gradient(black, purple); }
+#p2 { background: linear-gradient(#1e3c72, #2a5298); }
+#p3 { background: black; }
+#p4 { background: linear-gradient(#ff416c, #ff4b2b); }
+#p5 { background: linear-gradient(#11998e, #38ef7d); }
+#p6 { background: linear-gradient(#8360c3, #2ebf91); }
+#p7 { background: linear-gradient(#ff9966, #ff5e62); }
+#p8 { background: linear-gradient(#42275a, #734b6d); }
+#p9 { background: linear-gradient(#000000, #0f2027); }
+#p10 { background: linear-gradient(#232526, #414345); }
+#p11 { background: linear-gradient(#000000, #434343); }
+#p12 { background: linear-gradient(#141e30, #243b55); }
+#p13 { background: linear-gradient(#000000, #0f2027); }
+#p14 { background: linear-gradient(#232526, #414345); }
+#p15 { background: linear-gradient(#42275a, #734b6d); }
+#p16 { background: linear-gradient(#141e30, #243b55); }
+#p17 { background: black; }
+
+img {
+  width:260px;
+  border-radius:20px;
+  margin-bottom:10px;
+}
+
+button {
+  padding:10px 20px;
+  margin:10px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- AUDIO -->
+<audio id="bg" loop>
+  <source src="bb.mp3">
+</audio>
+
+<audio id="meme">
+  <source src="meme.MP3">
+</audio>
+
+<audio id="noSound">
+  <source src="no.mp3">
+</audio>
+
+<!-- PAGE 1 -->
+<div class="page" id="p1">
+  <img src="photo1.jpeg">
+  <h1>Yaare Yaare 😎</h1>
+  <button onclick="next(1)">Start</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page hidden" id="p2">
+  <h1>Welcome to the Domain 🌐</h1>
+  <p>Do you want to know about me?</p>
+  <button onclick="yes()">Yes</button>
+  <button onclick="no()">No</button>
+</div>
+
+<!-- WRONG -->
+<div class="page hidden" id="p3">
+  <h1 style="color:red;">Wrong Choice 😈</h1>
+</div>
+
+<!-- NAME -->
+<div class="page hidden" id="p4">
+  <img src="photo5.jpeg">
+  <h1>Name:- Kabir Kumar Bay 💖</h1>
+  <button onclick="next(4)">Next</button>
+</div>
+
+<!-- INFO -->
+<div class="page hidden" id="p5">
+  <h2>I live in Guwahati, Assam 🌍</h2>
+  <button onclick="next(5)">Next</button>
+</div>
+
+<div class="page hidden" id="p6">
+  <h2>Dharti mein aane ka din 🎂</h2>
+  <h1>20/07/2009</h1>
+  <button onclick="next(6)">Next</button>
+</div>
+
+<!-- HOBBIES -->
+<div class="page hidden" id="p7">
+  <h1>My Hobbies 😎</h1>
+  <button onclick="next(7)">Next</button>
+</div>
+
+<div class="page hidden" id="p8">
+  <img src="photo3.jpeg">
+  <h1>🎮 Gaming</h1>
+  <button onclick="next(8)">Next</button>
+</div>
+
+<div class="page hidden" id="p9">
+  <img src="photo4.jpeg">
+  <h1>😴 Sleeping</h1>
+  <button onclick="next(9)">Next</button>
+</div>
+
+<div class="page hidden" id="p10">
+  <img src="photo2.jpeg">
+  <h1>😏 Annoying others 🤧</h1>
+  <button onclick="next(10)">Next</button>
+</div>
+
+<!-- END -->
+<div class="page hidden" id="p11" onclick="startMeme()">
+  <img src="photo6.jpeg">
+  <h1>The story doesn't end here… 💖</h1>
+  <p>Still more to come 😏</p>
+  <button id="runBtn" onclick="runButton()">Next</button>
+</div>
+
+<!-- FUN FACT TITLE -->
+<div class="page hidden" id="p12">
+  <h1>Fun Fact 😄</h1>
+  <button onclick="next(12)">Next</button>
+</div>
+
+<!-- FACTS -->
+<div class="page hidden" id="p13">
+  <p>I open my phone for 5 minutes… and end up using it for hours 📱😂</p>
+  <button onclick="next(13)">Next</button>
+</div>
+
+<div class="page hidden" id="p14">
+  <p>I say “last game”… but it’s never the last 🎮</p>
+  <button onclick="next(14)">Next</button>
+</div>
+
+<div class="page hidden" id="p15">
+  <p>I can sleep anywhere… no conditions required 😴😂</p>
+  <button onclick="next(15)">Next</button>
+</div>
+
+<div class="page hidden" id="p16">
+  <p>I enjoy writing poems ✍️</p>
+  <button onclick="next(16)">Next</button>
+</div>
+
+<!-- FINAL -->
+<div class="page hidden" id="p17">
+  <h1>One Last Thing 💧</h1>
+  <p>Don’t forget to drink water.</p>
+  <h2 style="margin-top:40px;">— THE END — 🎬</h2>
+</div>
+
+<script>
+
+function next(n){
+  document.getElementById("p"+n).classList.add("hidden");
+  document.getElementById("p"+(n+1)).classList.remove("hidden");
+}
+
+function yes(){
+  document.getElementById("p2").classList.add("hidden");
+  document.getElementById("p4").classList.remove("hidden");
+}
+
+function no(){
+  document.getElementById("bg").pause();
+  document.getElementById("noSound").play();
+  document.getElementById("p2").classList.add("hidden");
+  document.getElementById("p3").classList.remove("hidden");
+}
+
+// RUN BUTTON
+let runCount = 0;
+function runButton(){
+  let btn = document.getElementById("runBtn");
+
+  if(runCount < 2){
+    btn.style.position = "absolute";
+    btn.style.top = Math.random()*80 + "%";
+    btn.style.left = Math.random()*80 + "%";
+    runCount++;
+  } else {
+    next(11);
+  }
+}
+
+// BG MUSIC START
+document.body.addEventListener("click", function () {
+  document.getElementById("bg").play();
+}, { once: true });
+
+// ✅ MEME FIX (GITHUB WORKING)
+let memeStarted = false;
+function startMeme(){
+  if(!memeStarted){
+    let meme = document.getElementById("meme");
+    let bg = document.getElementById("bg");
+
+    bg.pause();
+    meme.currentTime = 0;
+    meme.play().catch(()=>{});
+
+    memeStarted = true;
+  }
+}
+
+</script>
+
+</body>
+</html>
